@@ -17,6 +17,11 @@ import java.util.List;
 public class TodoController {
     private final TodoService todoService;
 
+    @GetMapping
+    public String helloWorld() {
+        return "To-do Application !";
+    }
+
     @PostMapping
     public ResponseEntity<TodoDto> newTodo(@RequestBody TodoDto todoPostDto){
 //        return new ResponseEntity<>(todoService.create(todoPostDto), HttpStatus.CREATED);
@@ -41,11 +46,11 @@ public class TodoController {
         return ResponseEntity.ok(this.todoService.read(id));
     }
 
-    @GetMapping
-    public ResponseEntity<List<TodoDto>> checkAll() {
-//        return new ResponseEntity<>(todoService.readAll(), HttpStatus.OK);
-        return ResponseEntity.ok(this.todoService.readAll());
-    }
+//    @GetMapping
+//    public ResponseEntity<List<TodoDto>> checkAll() {
+////        return new ResponseEntity<>(todoService.readAll(), HttpStatus.OK);
+//        return ResponseEntity.ok(this.todoService.readAll());
+//    }
 
     @DeleteMapping
     public ResponseEntity<TodoDto> deleteAll() {
